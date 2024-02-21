@@ -1,12 +1,11 @@
 import React from 'react';
 
 const Article = ({ article }) => {
-  const { source, author, title, description, url, urlToImage, publishedAt, content } = article;
+  const { author, title, description, url, urlToImage, publishedAt, content } = article;
 
   return (
     <div className="container mt-5">
       <div className="card">
-        {source.id}
         <img src={urlToImage} className="card-img-top" alt="Article" />
         <div className="card-body">
           <h5 className="card-title">{title}</h5>
