@@ -1,6 +1,21 @@
 import React from 'react';
 
 const Article = ({ article }) => {
+
+  // const [articles, setArticles] = useState([]);
+  // useEffect(() => {
+  //   axios.get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`)
+  //   .then(response=>setArticles(response.data.articles))
+  //   .catch(error=>console.error("Error fetching articles:",error))
+  // }, []);
+
+      // <div>
+    //   {articles.map((article, index) => (
+    //     <Article key={index} article={article} />
+    //   ))}
+    // </div>
+
+
   const { author, title, description, url, urlToImage, publishedAt, content } = article;
 
   return (
