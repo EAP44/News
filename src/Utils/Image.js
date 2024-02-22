@@ -1,3 +1,3 @@
 import logo from "../Assets/NEWS.png"
-
-export { logo }
+import NewsArticle from "../Assets/newsArticle.png"
+export { logo,NewsArticle }
