@@ -1,5 +1,5 @@
 const initstate = {
-  country:"United States of America",
+  country:"us",
 };
 function Reducer(state = initstate, action) {
   switch (action.type) {

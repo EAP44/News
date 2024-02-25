@@ -7,28 +7,15 @@ import { useSelector } from "react-redux";
 const Home = () => {
 
   const [articles, setArticles] = useState([]);
-  const [countrysign, setcountrysign] = useState();
   const country = useSelector(data=>data.country)
-  switch(country){
-      case 'United States of America':
-          return setcountrysign('us')
-      case 'Morocco':
-          return setcountrysign('ma')
-      case 'Japan':
-          return setcountrysign('jp')
-      case 'France':
-          return setcountrysign('fr')
-      case 'Denmark':
-          return setcountrysign('da')
-      case 'Canada':
-          return setcountrysign('ca')
-  }
+  console.log(country);
   useEffect(() => {
-    axios.get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`)
+    axios.get(`https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${API_KEY}`)
     .then(response=>setArticles(response.data.articles))
     .catch(error=>console.error("Error fetching articles:",error))
   }, []);
 
+  
   return (
     <div>
      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
