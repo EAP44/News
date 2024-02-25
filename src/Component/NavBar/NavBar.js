@@ -1,7 +1,13 @@
+import { useState } from "react";
 import { logo } from "../../Utils/Image";
 import "./StyleNavBar.css";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { SwitchCountry } from "../../Redux/Action";
 function NavBar() {
+  const countrys = ['United States of America','Morocco','Japan','France','Denmark','Canada',]
+  const [selected,setselected] = useState()
+  const dispatch = useDispatch()
   return (
     <nav className="Nav">
       <span className="Nav-logo">
@@ -12,24 +18,27 @@ function NavBar() {
           <Link to="/">Home</Link>
         </li>
         <li className="Nav-li">
-          <Link to="/">News</Link>
+          <Link to="/News">News</Link>
         </li>
         <li className="Nav-li">
-          <Link to="/">Sport</Link>
+          <Link to="/Sport">Sport</Link>
         </li>
         <li className="Nav-li">
-          <Link to="/">Earth</Link>
+          <Link to="/Earth">Earth</Link>
         </li>
         <li className="Nav-li">
-          <Link to="/">Travel</Link>
+          <Link to="/Travel">Travel</Link>
         </li>
         <li className="Nav-li">
-          <Link to="/">economie</Link>
+          <Link to="/Economie">Economie</Link>
         </li>
       </ul>
-      <span class="Nav-serch">
-        <input type="text" placeholder="Search..." />
-      </span>
+      <select class="Nav-serch" value={selected} onChange={(e)=>{setselected(e.target.value);dispatch(SwitchCountry(selected))}}>
+        <option>select your country</option>
+        {countrys.map((country)=>{
+          return <option>{country}</option>
+        })}
+      </select>
     </nav>
   );
 }

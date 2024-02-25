@@ -1,7 +1,7 @@
-export const A = ()=>{
+export const SwitchCountry = (country)=>{
     return{
-        type : "",
-        paylod : ""
+        type : "SwitchCountry",
+        paylod : country
     }
 };
 export const B = ()=>{
