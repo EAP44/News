@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { NewsArticle } from "../../Utils/Image";
 import { API_KEY } from "../../API/API_key";
@@ -10,10 +9,10 @@ const Home = () => {
   const country = useSelector(data=>data.country)
   console.log(country);
   useEffect(() => {
-    axios.get(`https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${API_KEY}`)
-    .then(response=>setArticles(response.data.articles))
-    .catch(error=>console.error("Error fetching articles:",error))
-  }, []);
+    fetch(`https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${API_KEY}`)
+      .then((response)=>{ return response.json()})
+      .then((data)=>{setArticles(data.articles)})
+  }, [country]);
 
   
   return (

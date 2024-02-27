@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { NewsArticle } from "../../Utils/Image";
 import { API_KEY } from "../../API/API_key";
@@ -6,9 +5,9 @@ import "./News.css";
 const News = () => {
   const [articles, setArticles] = useState([]);
   useEffect(() => {
-    axios.get(`https://newsapi.org/v2/everything?q=news&apiKey=${API_KEY}`)
-    .then(response=>setArticles(response.data.articles))
-    .catch(error=>console.error("Error fetching articles:",error))
+    fetch(`https://newsapi.org/v2/everything?q=news&apiKey=${API_KEY}`)
+      .then((response)=>{ return response.json()})
+      .then((data)=>{setArticles(data.articles)})
   }, []);
 
   return (
