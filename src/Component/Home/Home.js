@@ -12,7 +12,7 @@ const Home = () => {
     fetch(`https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${API_KEY}`)
       .then((response)=>{ return response.json()})
       .then((data)=>{setArticles(data.articles)})
-  }, [country]);
+  }, []);
 
   
   return (
